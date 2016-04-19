@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--按钮没有按下的状态-->
+    <!--没有焦点的状态-->
+    <item android:state_focused="false"
+        android:state_selected="false"
+        android:state_pressed ="false"
+        android:drawable ="@color/white"/>
+    <item android:state_focused="false"
+        android:state_selected ="true"
+        android:state_pressed ="false"
+        android:drawable="@color/darkgrey"/>
+  <!--有焦点的状态如鼠标经过-->
+      <item android:state_focused="true"
+          android:state_selected="false"
+          android:state_pressed ="false"
+          android:drawable ="@color/darkgrey"/>
+    <item android:state_focused ="true"
+            android:state_selected ="true"
+        android:state_pressed="false"
+        android:drawable ="@color/darkgrey"/>
+    <!--按下按钮的状态-->
+    <item android:state_focused="false"
+        android:state_selected="false"
+        android:state_pressed ="true"
+        android:drawable ="@color/darkgrey"/>
+    <item android:state_focused="false"
+        android:state_selected ="true"
+        android:state_pressed ="true"
+        android:drawable="@color/darkgrey"/>
+    <!--有焦点的状态如鼠标经过-->
+    <item android:state_focused="true"
+        android:state_selected="false"
+        android:state_pressed ="true"
+        android:drawable ="@color/darkgrey"/>
+    <item android:state_focused ="true"
+        android:state_selected ="true"
+        android:state_pressed="true"
+        android:drawable ="@color/darkgrey"/>
+
+
+
+</selector>

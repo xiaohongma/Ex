@@ -16,7 +16,7 @@ import com.example.administrator.ex.util.TabUtils;
 import java.util.List;
 
 
-public class MainActivity extends Activity  {
+public class MainActivity extends Activity {
     //private ViewPager pager;
     private List<ActionBar.Tab> tabs;
     private ActionBar actionBar;
@@ -30,6 +30,27 @@ public class MainActivity extends Activity  {
         // MyFragmentAdapter myAdapter = new MyFragmentAdapter(getFragmentManag);
         // pager.setAdapter(myAdapter);
         initTabs();
+       /* client.get(Request.Method.GET,"http://www.weather.com.cn/data/sk/101280101.html",12, new RequestListener() {
+            @Override
+            public void onPreRequest() {
+
+            }
+
+            @Override
+            public void onRequestSuccess(BaseResponse response) {
+
+            }
+
+            @Override
+            public void onRequestError(int code, String msg) {
+
+            }
+
+            @Override
+            public void onRequestFall(int code, String msg) {
+
+            }
+        });*/
     }
 
 

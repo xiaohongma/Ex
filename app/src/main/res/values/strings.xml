@@ -23,5 +23,12 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_base">BaseActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name ="no_internet">暂无网络，请检查设置</string>
+    <string name="server_error">服务器出错</string>
+    <string name="network_error">连接网络出错</string>
+    <string name="resource_error">资源找不到</string>
 
 </resources>

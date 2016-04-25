@@ -20,7 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     //表示如果运行环境的API是23以下（android 6.0），就采用Metarial风格主题，如果是6.0以上，采用6.0的设计风格
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile files('libs/volley.jar')
+    compile files('libs/gson-2.2.4.jar')
 }

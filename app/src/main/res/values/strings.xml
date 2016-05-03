@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Exchange</string>
+    <!--登录界面-->
+    <string name="login_button">登录</string>
+    <string name="login_name_hint">请输入邮箱或手机号</string>
+    <string name="login_password_hint">请输入密码</string>
     <!--actionabar相关-->
     <string name="action_settings">设置</string>
     <string name="action_search">搜索</string>

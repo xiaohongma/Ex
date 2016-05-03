@@ -2,7 +2,7 @@ package com.example.administrator.ex;
 
 import android.app.Fragment;
 
-import http.VolleyHttpClient;
+import com.example.administrator.ex.http.VolleyHttpClient;
 
 
 public class BaseFragment extends Fragment {

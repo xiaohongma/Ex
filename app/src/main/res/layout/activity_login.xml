@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_person_black_24dp"/>
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:hint="@string/login_name_hint"
+            android:drawableRight="@drawable/ic_clear_black_24dp"
+
+            />
+     </LinearLayout>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_lock_black_24dp"/>
+
+        <EditText
+        android:id="@+id/user_password"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+            android:inputType="textPassword"
+        android:singleLine="true"
+        android:hint="@string/login_password_hint"
+        android:drawableRight="@drawable/ic_clear_black_24dp"
+        />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <Button
+           android:id="@+id/button_login"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@color/green"
+           android:text="@string/login_button"/>
+    </LinearLayout>
+
+</LinearLayout>

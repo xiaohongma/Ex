@@ -86,6 +86,7 @@
     <orderEntry type="jdk" jdkName="Android API 23 Platform (1)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
+    <orderEntry type="library" exported="" name="pushservice-4.6.2.39" level="project" />
     <orderEntry type="library" exported="" name="volley" level="project" />
   </component>
 </module>

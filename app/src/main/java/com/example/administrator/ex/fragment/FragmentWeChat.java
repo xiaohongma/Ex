@@ -13,11 +13,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.administrator.ex.BaseFragment;
 import com.example.administrator.ex.R;
+import com.example.administrator.ex.util.Utils;
 import com.example.administrator.ex.widget.LoadingDialog;
 
-import http.BaseResponse;
-import http.RequestListener;
-import http.VolleyHttpClient;
+import com.example.administrator.ex.http.BaseResponse;
+import com.example.administrator.ex.http.RequestListener;
+import com.example.administrator.ex.http.VolleyHttpClient;
 
 
 public class FragmentWeChat extends BaseFragment implements View.OnClickListener {
@@ -45,6 +46,7 @@ public class FragmentWeChat extends BaseFragment implements View.OnClickListener
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_wechat, container, false);
         textView =(TextView)view.findViewById(R.id.text1);
+        textView.setText(Utils.logStringCache);
         Button button =(Button) view.findViewById(R.id.button1);
         button.setOnClickListener(this);
         loadingDialog = new LoadingDialog(getActivity());

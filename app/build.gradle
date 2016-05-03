@@ -24,4 +24,6 @@ dependencies {
     //表示如果运行环境的API是23以下（android 6.0），就采用Metarial风格主题，如果是6.0以上，采用6.0的设计风格
     compile files('libs/volley.jar')
     compile files('libs/gson-2.2.4.jar')
+    //compile files('libs/pushservice-4.6.2.39.jar')
+    compile files('src/main/jniLibs/pushservice-4.6.2.39.jar')
 }

@@ -12,6 +12,7 @@ import com.example.administrator.ex.sys.Constant;
 
 /**
  * Created by Administrator on 2016/4/25.
+ * 创建启动页面，可以在此处投放广告，加载后台数据等。
  */
 public class StartActivity extends Activity {
     private View view;
@@ -22,6 +23,7 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         // Inflate the layout for this fragment
        setContentView(R.layout.activity_start);
+       // PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,"KZ8nKXyc8AkZoV2bLKLPBgir");
         this.getActionBar().hide();
         webView =(WebView)findViewById(R.id.web_view_1);
         webView.setVerticalScrollBarEnabled(false);

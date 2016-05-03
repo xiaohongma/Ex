@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.example.administrator.ex.fragment.FragmentContacts;
 import com.example.administrator.ex.fragment.FragmentLife;
 import com.example.administrator.ex.fragment.FragmentMy;
@@ -25,6 +27,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "KZ8nKXyc8AkZoV2bLKLPBgir");
        // setContentView(R.layout.activity_main);
         //  pager = (ViewPager)findViewById(R.id.pager);
         // MyFragmentAdapter myAdapter = new MyFragmentAdapter(getFragmentManag);

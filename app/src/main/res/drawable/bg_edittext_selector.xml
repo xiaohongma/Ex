@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--登录界面输入框的样式-->
+    <item android:state_focused="true"  android:drawable="@color/green"
+        />
+    <item android:state_activated="true"  android:drawable="@color/green"
+        />
+
+
+</selector>

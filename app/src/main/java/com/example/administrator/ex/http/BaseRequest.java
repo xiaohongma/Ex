@@ -46,12 +46,20 @@ public class BaseRequest extends Request<BaseResponse> {
         listener.onResponse(response);
 
     }
+
+    /**
+     * 在这里传入要post的参数，Request会自动调用此方法
+     * @return
+     */
     @Override
     protected Map<String,String> getParams(){
-        return params;
+      //  if(params!=null) {
+            return params;
+        //}
+       // return null;
     }
     private BaseResponse parseJson(String jsonString){
-        int status = 0;
+        int status =0;
         String msg = null;
         String data = null;
         try {

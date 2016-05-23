@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 
 import com.example.administrator.ex.R;
 
+/**
+ * 朋友圈界面
+ */
 public class FragmentLife extends Fragment{
 
 	@Override

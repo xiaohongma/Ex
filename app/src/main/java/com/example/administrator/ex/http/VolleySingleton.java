@@ -14,6 +14,7 @@ public class VolleySingleton {
     private static VolleySingleton ourInstance;
 
     public static  synchronized VolleySingleton getInstance(Context context) {
+
         if(ourInstance==null){
             ourInstance = new VolleySingleton(context.getApplicationContext());
         }

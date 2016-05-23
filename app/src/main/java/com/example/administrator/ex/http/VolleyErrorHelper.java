@@ -27,6 +27,8 @@ public class VolleyErrorHelper {
         }else if(isNetworkProblem(error)){
             return context.getResources().getString(R.string.no_internet);
         }
+      //int i =error.networkResponse.statusCode;
+       // return  Integer.toString(i);
         return context.getResources().getString(R.string.network_error);
     }
     /**
@@ -52,12 +54,24 @@ public class VolleyErrorHelper {
                 case 404:
                 case 422:
                 case 401:
+
                     return context.getResources().getString(R.string.resource_error);
+                case 0:
                 default:
                     return context.getResources().getString(R.string.server_error);
 
             }
+        }else {
+            switch(response.statusCode){
+
+                case 500:
+
+                    return context.getResources().getString(R.string.resource_error);
+                default:
+                    return context.getResources().getString(R.string.network_error);
+
         }
-        return context.getResources().getString(R.string.network_error);
+        }
+        //return context.getResources().getString(R.string.network_error);
     }
 }

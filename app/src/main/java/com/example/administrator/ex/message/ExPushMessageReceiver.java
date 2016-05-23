@@ -1,10 +1,15 @@
 package com.example.administrator.ex.message;
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.baidu.android.pushservice.PushMessageReceiver;
+import com.example.administrator.ex.sys.Constant;
+import com.example.administrator.ex.util.ManifestUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,8 +20,10 @@ import java.util.List;
  * Created by Administrator on 2016/5/2.
  */
 public class ExPushMessageReceiver extends PushMessageReceiver {
+    private static int onBindCount = 0;
     public static final String TAG = ExPushMessageReceiver.class
             .getSimpleName();//"ExPushMessageReceiver"
+  //  private  MessageHandler messageHandler = new MessageHandler();
 
     /**
      * 调用PushManager.startWork后，sdk将对push
@@ -38,7 +45,7 @@ public class ExPushMessageReceiver extends PushMessageReceiver {
      * @return none
      */
     @Override
-    public void onBind(Context context, int errorCode, String appid,
+    public void onBind(final Context context, int errorCode, String appid,
                        String userId, String channelId, String requestId) {
         String responseString = "onBind errorCode=" + errorCode + " appid="
                 + appid + " userId=" + userId + " channelId=" + channelId
@@ -46,9 +53,26 @@ public class ExPushMessageReceiver extends PushMessageReceiver {
         //updateContent(context,responseString);
         Log.d(TAG, responseString);
         if (errorCode == 0) {
-            // 绑定成功
+            //存入绑定的信息
             Log.d(TAG, "绑定成功");
+           MessageHandler.bindSuccess(context,errorCode,userId,channelId);
+            // 绑定成功
+
         }
+        else{
+            //如果绑定不成功，则过两秒钟再发送一次请求,z
+            while(onBindCount<5) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        PushManager.startWork(context, PushConstants.LOGIN_TYPE_API_KEY, ManifestUtils.getMetaValue(context, Constant.API_KEY));
+                    }
+                }, 2000);
+            }
+            onBindCount = onBindCount+1;
+        }
+      //  Log.d(TAG, "绑定");
     }
 
     /**
@@ -262,6 +286,7 @@ public class ExPushMessageReceiver extends PushMessageReceiver {
         if (errorCode == 0) {
             // 解绑定成功
             Log.d(TAG, "解绑成功");
+
         }
         // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
        // updateContent(context, responseString);

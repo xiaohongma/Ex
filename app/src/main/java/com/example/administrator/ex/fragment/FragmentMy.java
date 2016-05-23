@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.example.administrator.ex.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 个人设置界面
  */
 public class FragmentMy extends Fragment {
 

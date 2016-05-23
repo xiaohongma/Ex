@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 
 import com.example.administrator.ex.R;
 
+/**
+ * 联系人界面
+ */
 public class FragmentContacts extends Fragment{
 
 	@Override

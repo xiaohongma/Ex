@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.PushManager;
 import com.example.administrator.ex.fragment.FragmentContacts;
 import com.example.administrator.ex.fragment.FragmentLife;
 import com.example.administrator.ex.fragment.FragmentMy;
@@ -17,8 +15,12 @@ import com.example.administrator.ex.util.TabUtils;
 
 import java.util.List;
 
+/**
+ * 主界面，类似微信界面
+ */
 
 public class MainActivity extends Activity {
+    public static MainActivity mainAcitvity;
     //private ViewPager pager;
     private List<ActionBar.Tab> tabs;
     private ActionBar actionBar;
@@ -27,33 +29,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "KZ8nKXyc8AkZoV2bLKLPBgir");
-       // setContentView(R.layout.activity_main);
-        //  pager = (ViewPager)findViewById(R.id.pager);
-        // MyFragmentAdapter myAdapter = new MyFragmentAdapter(getFragmentManag);
-        // pager.setAdapter(myAdapter);
+        mainAcitvity =this;
         initTabs();
-       /* client.get(Request.Method.GET,"http://www.weather.com.cn/data/sk/101280101.html",12, new RequestListener() {
-            @Override
-            public void onPreRequest() {
+        //startService(new Intent(this,DataInitService.class));
 
-            }
-
-            @Override
-            public void onRequestSuccess(BaseResponse response) {
-
-            }
-
-            @Override
-            public void onRequestError(int code, String msg) {
-
-            }
-
-            @Override
-            public void onRequestFall(int code, String msg) {
-
-            }
-        });*/
     }
 
 
@@ -81,11 +60,12 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("deprecation")
     public void initTabs() {
         //  tabs = new ArrayList<ActionBar.Tab>();
         actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        if (actionBar != null) actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.addTab(actionBar.newTab().setCustomView(TabUtils.renderTabView(getApplicationContext(), R.string.actionBar_wechat, 3)).
                 setTabListener(new MyTabListener<FragmentWeChat>(this, FragmentWeChat.class)));
         actionBar.addTab(actionBar.newTab().setCustomView(TabUtils.renderTabView(getApplicationContext(), R.string.actionBar_contacts, 4)).

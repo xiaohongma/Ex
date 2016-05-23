@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Exchange</string>
+    <!--对话框-->
+  <string name="loadingMsg_login">正在登陆</string>
+    <string name="loadingMsg_load">正在加载</string>
     <!--登录界面-->
     <string name="login_button">登录</string>
     <string name="login_name_hint">请输入邮箱或手机号</string>

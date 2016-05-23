@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.administrator.ex.R;
@@ -27,6 +28,7 @@ public class LoadingDialog {
          dialog = new Dialog(context,R.style.dialog);
         dialog.setContentView(dialogView);
         dialog.setCanceledOnTouchOutside(true);
+        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
     }
     public void setMessage(CharSequence msg){
         text.setText(msg);

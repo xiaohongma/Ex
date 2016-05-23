@@ -1,5 +1,6 @@
 package com.example.administrator.ex.http;
 
+
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by Administrator on 2016/4/24.
  */
 public class BaseResponse{
-    public static final int SUCCESS =1;
+    private static int SUCCESS =1;
     private Gson gson= new GsonBuilder().create();
    //private Gson gson= new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
     private int status;
@@ -28,15 +29,20 @@ public class BaseResponse{
         if(TextUtils.isEmpty(data)){
             return null;
         }
+        //将data数据转换成指定的对象并返回
         return gson.fromJson(data,mClass);
     }
     /*
     处理Gson数组
      */
     public<T> List<T> getList(Class<T> mClass){
-        if(TextUtils.isEmpty(data)){
-            return null;
-        }
+//        Gson gson = new Gson();
+//        if(TextUtils.isEmpty(data)){
+//            return null;
+//        }
+//        List<T> list = gson.fromJson(data,new TypeToken<List<T>>(){}.getType());
+//        return list;
+
         List<T> list = new ArrayList<T>();
         Type listType = type(List.class,mClass);
         list = gson.fromJson(data,listType);

@@ -5,6 +5,19 @@ package model;
  * Entity mapped to table CHAT_MSG.
  */
 public class ChatMsg {
+    public static final int MSG_TYPE_TEXT =1;
+    public static final int MSG_TYPE_IMG =2;
+    public static final int MSG_TYPE_VOICE =3;
+    public static final int MSG_TYPE_VIDEO =4;
+
+    public static final int SEND =0;
+    public static final int RECEIVER =1;
+
+    public static final int STATE_NO_SEND =0;
+    public static final int STATE_SEND_SUCCESS =1;
+    public static final int STATE_SEND_FAIL =2;
+    public static final int STATE_RECEIVED =3;
+    public static final int STATE_UNRECEIVED =4;
 
     private Long id;
     private int memberId;
@@ -12,10 +25,11 @@ public class ChatMsg {
     /** Not-null value. */
     private String chatMsg;
     /** Not-null value. */
-    private java.util.Date registerTime;
+    private java.util.Date chatTime;
     private int chatType;
     private int isReceived;
     private int status;
+
 
     public ChatMsg() {
     }
@@ -24,12 +38,12 @@ public class ChatMsg {
         this.id = id;
     }
 
-    public ChatMsg(Long id, int memberId, int contactId, String chatMsg, java.util.Date registerTime, int chatType, int isReceived, int status) {
+    public ChatMsg(Long id, int memberId, int contactId, String chatMsg, java.util.Date chatTime, int chatType, int isReceived, int status) {
         this.id = id;
         this.memberId = memberId;
         this.contactId = contactId;
         this.chatMsg = chatMsg;
-        this.registerTime = registerTime;
+        this.chatTime = chatTime;
         this.chatType = chatType;
         this.isReceived = isReceived;
         this.status = status;
@@ -70,13 +84,13 @@ public class ChatMsg {
     }
 
     /** Not-null value. */
-    public java.util.Date getRegisterTime() {
-        return registerTime;
+    public java.util.Date getChatTime() {
+        return chatTime;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setRegisterTime(java.util.Date registerTime) {
-        this.registerTime = registerTime;
+    public void setChatTime(java.util.Date chatTime) {
+        this.chatTime = chatTime;
     }
 
     public int getChatType() {

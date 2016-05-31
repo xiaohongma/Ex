@@ -27,7 +27,7 @@ public class ChatMsgDao extends AbstractDao<ChatMsg, Long> {
         public final static Property MemberId = new Property(1, int.class, "memberId", false, "MEMBER_ID");
         public final static Property ContactId = new Property(2, int.class, "contactId", false, "CONTACT_ID");
         public final static Property ChatMsg = new Property(3, String.class, "chatMsg", false, "CHAT_MSG");
-        public final static Property RegisterTime = new Property(4, java.util.Date.class, "registerTime", false, "REGISTER_TIME");
+        public final static Property ChatTime = new Property(4, java.util.Date.class, "registerTime", false, "CHAT_TIME");
         public final static Property ChatType = new Property(5, int.class, "chatType", false, "CHAT_TYPE");
         public final static Property IsReceived = new Property(6, int.class, "isReceived", false, "IS_RECEIVED");
         public final static Property Status = new Property(7, int.class, "status", false, "STATUS");
@@ -50,7 +50,7 @@ public class ChatMsgDao extends AbstractDao<ChatMsg, Long> {
                 "'MEMBER_ID' INTEGER NOT NULL ," + // 1: memberId
                 "'CONTACT_ID' INTEGER NOT NULL ," + // 2: contactId
                 "'CHAT_MSG' TEXT NOT NULL ," + // 3: chatMsg
-                "'REGISTER_TIME' INTEGER NOT NULL ," + // 4: registerTime
+                "'CHAT_TIME' INTEGER  ," + // 4: registerTime
                 "'CHAT_TYPE' INTEGER NOT NULL ," + // 5: chatType
                 "'IS_RECEIVED' INTEGER NOT NULL ," + // 6: isReceived
                 "'STATUS' INTEGER NOT NULL );"); // 7: status
@@ -74,7 +74,7 @@ public class ChatMsgDao extends AbstractDao<ChatMsg, Long> {
         stmt.bindLong(2, entity.getMemberId());
         stmt.bindLong(3, entity.getContactId());
         stmt.bindString(4, entity.getChatMsg());
-        stmt.bindLong(5, entity.getRegisterTime().getTime());
+        stmt.bindLong(5, entity.getChatTime().getTime());
         stmt.bindLong(6, entity.getChatType());
         stmt.bindLong(7, entity.getIsReceived());
         stmt.bindLong(8, entity.getStatus());
@@ -109,7 +109,7 @@ public class ChatMsgDao extends AbstractDao<ChatMsg, Long> {
         entity.setMemberId(cursor.getInt(offset + 1));
         entity.setContactId(cursor.getInt(offset + 2));
         entity.setChatMsg(cursor.getString(offset + 3));
-        entity.setRegisterTime(new java.util.Date(cursor.getLong(offset + 4)));
+        entity.setChatTime(new java.util.Date(cursor.getLong(offset + 4)));
         entity.setChatType(cursor.getInt(offset + 5));
         entity.setIsReceived(cursor.getInt(offset + 6));
         entity.setStatus(cursor.getInt(offset + 7));

@@ -24,12 +24,14 @@ public class Constant {
 
     public static class API{
 
-        public static final String URL_BASE = "http://192.168.1.132:8080/my/";
+        public static final String URL_BASE = "http://192.168.1.101:8080/my/";
         public static final String URL_STATE =URL_BASE+"test2.jsp";
-        public static final String URL_BASE2 = "http://192.168.1.132:8080/exchange/";
+        public static final String URL_BASE2 = "http://192.168.1.101:8080/exchange/";
         public static final String URL_LOGIN =URL_BASE2 +"login";
         public static final String URL_LOGIN_TOKEN = URL_BASE2+"token";
         public static final String URL_FRIENDS = URL_BASE2+"friends";
+        public static final String URL_PROFILE =URL_BASE2+"profile" ;
+        public static final String URL_CHAT_SEND =URL_BASE2+"chat/send" ;
       //  Base64.encode(new Byte[]());
 
     }

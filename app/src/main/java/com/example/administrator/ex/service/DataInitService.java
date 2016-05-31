@@ -73,11 +73,13 @@ public class DataInitService extends IntentService {
 
             @Override
             public void onRequestError(int code, String msg) {
+                Log.d("service",code+msg);
 
             }
 
             @Override
             public void onRequestFall(int code, String msg) {
+                Log.d("service",code+msg);
 
             }
         });

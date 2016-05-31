@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
 import com.example.administrator.ex.sys.Constant;
+import com.example.administrator.ex.sys.ExApplication;
 import com.example.administrator.ex.util.ManifestUtils;
 import com.example.administrator.ex.util.PreferenceUtils;
 
@@ -54,6 +55,7 @@ public class StartActivity extends Activity {
 
 
         }else{
+            ExApplication.getInstance().setLoginMember(PreferenceUtils.getMember(getApplicationContext()));
             Intent i = new Intent(this,MainActivity.class);
             startActivity(i);
             finish();

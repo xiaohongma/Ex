@@ -18,6 +18,7 @@ import com.example.administrator.ex.http.VolleyHttpClient;
 import com.example.administrator.ex.model.Member;
 import com.example.administrator.ex.service.DataInitService;
 import com.example.administrator.ex.sys.Constant;
+import com.example.administrator.ex.sys.ExApplication;
 import com.example.administrator.ex.util.PreferenceUtils;
 import com.example.administrator.ex.widget.LoadingDialog;
 
@@ -91,6 +92,7 @@ public class LoginActivity extends Activity {
                 //获取的信息保存到application和SharedPreferences
                 Member member = response.getObj(Member.class);
                 PreferenceUtils.saveMember(getApplicationContext(),member);
+                ExApplication.getInstance().setLoginMember(member);
                 jump();
                 //prefs = getSharedPreferences("exchange", Context.MODE_PRIVATE);
                 //SharedPreferences.Editor editor = prefs.edit();
@@ -121,6 +123,7 @@ public class LoginActivity extends Activity {
         //初始完数据的时候，将这个标志存为true
         //如果没有初始化数据，则启动该服务
         boolean isDataInit = PreferenceUtils.getBoolean(this,Constant.IS_DATA_INIT,false);
+
         if(!isDataInit){
             startService(new Intent(this,DataInitService.class));
         }

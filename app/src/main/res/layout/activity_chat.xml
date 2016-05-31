@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/chat_list_view"
+
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_above="@+id/layoutChat"
+
+         ></ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id ="@+id/layoutChat"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:gravity="center"
+        android:paddingRight="5dp">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/chat_msg"
+            android:layout_weight="9"
+            android:inputType="text"
+            android:hint="Say Something"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/send_chat_msg"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="发送"/>
+
+        </LinearLayout>
+</RelativeLayout>

@@ -11,6 +11,7 @@ import com.example.administrator.ex.http.RequestListener;
 import com.example.administrator.ex.http.VolleyHttpClient;
 import com.example.administrator.ex.model.Member;
 import com.example.administrator.ex.sys.Constant;
+import com.example.administrator.ex.sys.ExApplication;
 import com.example.administrator.ex.util.PreferenceUtils;
 
 import java.util.HashMap;
@@ -50,6 +51,7 @@ public class MessageHandler {
             public void onRequestSuccess(BaseResponse response) {
                 Member member = response.getObj(Member.class);
                 PreferenceUtils.saveMember(context,member);
+                ExApplication.getInstance().setLoginMember(member);
 
             }
 

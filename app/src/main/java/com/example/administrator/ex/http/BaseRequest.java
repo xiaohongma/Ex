@@ -1,5 +1,7 @@
 package com.example.administrator.ex.http;
 
+import android.util.Log;
+
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
@@ -31,7 +33,11 @@ public class BaseRequest extends Request<BaseResponse> {
     @Override
     protected Response<BaseResponse> parseNetworkResponse(NetworkResponse response) {
         try {
+           // String jsonString = new String(response.data,"UTF-8");
+
             String jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+            Log.d("Received",  HttpHeaderParser.parseCharset(response.headers));
+
             BaseResponse baseResponse = parseJson(jsonString);
             return Response.success(baseResponse,HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {

@@ -2,6 +2,7 @@ package com.example.administrator.ex.http;
 
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -16,11 +17,12 @@ import java.util.List;
  */
 public class BaseResponse{
     private static int SUCCESS =1;
-    private Gson gson= new GsonBuilder().create();
+    private Gson gson= new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
    //private Gson gson= new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
     private int status;
     private String msg;
-    private String data;
+    private String  data;
+
 
     /*
     处理单个Gson数据
@@ -30,7 +32,10 @@ public class BaseResponse{
             return null;
         }
         //将data数据转换成指定的对象并返回
+        Log.d("ReceivedData", data);
         return gson.fromJson(data,mClass);
+
+
     }
     /*
     处理Gson数组
@@ -80,6 +85,8 @@ public class BaseResponse{
         return msg;
     }
     public void setData(String data){
+
+
         this.data = data;
     }
     public String getData(){
@@ -88,4 +95,5 @@ public class BaseResponse{
     public boolean isSuccess(){
         return status==SUCCESS;
     }
+
 }

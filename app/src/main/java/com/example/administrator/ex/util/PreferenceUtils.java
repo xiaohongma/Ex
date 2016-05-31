@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.example.administrator.ex.model.Member;
 import com.example.administrator.ex.sys.Constant;
+import com.example.administrator.ex.sys.ExApplication;
 
 /**
  * Created by Administrator on 2016/5/4 0004.
@@ -40,7 +41,14 @@ public class PreferenceUtils {
         editor.commit();
 
     }
+
+    /**
+     * 将当前登录的用户存到SharedPreference和Application里面
+     * @param context
+     * @param member
+     */
     public static void saveMember(Context context ,Member member){
+        ExApplication.getInstance().setLoginMember(member);
        SharedPreferences  prefs = context.getSharedPreferences(Constant.PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(Constant.MEMBER_ID,member.getMemberId());
@@ -53,6 +61,18 @@ public class PreferenceUtils {
        // editor.putString(Constant.MEMBER,member.toString());
         editor.commit();
         //存在Application里面
+
+    }
+    public static Member getMember(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(Constant.PREFERENCES_NAME, Context.MODE_PRIVATE);
+        Member m = new Member();
+        m.setMemberId(preferences.getInt(Constant.MEMBER_ID,1));
+        m.setEmail(preferences.getString(Constant.EMAIL,null));
+        m.setToken(preferences.getString(Constant.TOKEN,null));
+        m.setName(preferences.getString(Constant.NAME,null));
+        m.setHeadSmall(preferences.getString(Constant.HEAD_SMALL,null));
+        m.setHeadBig(preferences.getString(Constant.HEAD_BIG,null));
+        return m;
 
     }
     public static boolean getBoolean(Context context,String key,boolean defaultValue){

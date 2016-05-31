@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         mainAcitvity =this;
         initTabs();
+
         //startService(new Intent(this,DataInitService.class));
 
     }

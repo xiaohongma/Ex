@@ -2,6 +2,7 @@ package com.example.administrator.ex.fragment;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +12,8 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.administrator.ex.ChatActivity;
 import com.example.administrator.ex.R;
-import com.example.administrator.ex.http.BaseResponse;
-import com.example.administrator.ex.http.RequestListener;
 import com.example.administrator.ex.http.VolleyHttpClient;
 import com.example.administrator.ex.util.Utils;
 
@@ -57,33 +57,30 @@ public class FragmentWeChat extends Fragment implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-        String url = "http://192.168.1.145:8080/my/test.json";
-        client.get(url,R.string.loadingMsg_load,new RequestListener() {
-            @Override
-            public void onPreRequest() {
-
-            }
-
-            @Override
-            public void onRequestSuccess(BaseResponse response) {
-                textView.setText(response.getData());
-            }
-
-            @Override
-            public void onRequestError(int code, String msg) {
-                textView.setText("RequestError");
-            }
-
-            @Override
-            public void onRequestFall(int code, String msg) {
-                textView.setText("RequestFall");
-            }
-        });
+        Intent i  = new Intent(getActivity(), ChatActivity.class);
+        startActivity(i);
+//        String url = "http://192.168.1.145:8080/my/test.json";
+//        client.get(url,R.string.loadingMsg_load,new RequestListener() {
+//            @Override
+//            public void onPreRequest() {
+//
+//            }
+//
+//            @Override
+//            public void onRequestSuccess(BaseResponse response) {
+//                textView.setText(response.getData());
+//            }
+//
+//            @Override
+//            public void onRequestError(int code, String msg) {
+//                textView.setText("RequestError");
+//            }
+//
+//            @Override
+//            public void onRequestFall(int code, String msg) {
+//                textView.setText("RequestFall");
+//            }
+//        });
     }
-//    private void test(){
-//        DaoMaster.OpenHelper helper = new DaoMaster.DevOpenHelper(getActivity(), Constant.DB_NAME,null);
-//        DaoMaster daoMaster = new DaoMaster(helper.getWritableDatabase());
-//        DaoSession session =  daoMaster.newSession();
-//       // session.getContactDao().insert("");
-//    }
+
 }
